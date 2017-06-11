@@ -8,9 +8,9 @@ namespace NaturalPowerWindTurbines.Models
 {
     public class KnowledgeItem
     {
-        [Required]
         public int Id { get; set; }
 
+        [Required]
         public string Details { get; set; }
 
         public string WindFarm { get; set; }
@@ -18,14 +18,17 @@ namespace NaturalPowerWindTurbines.Models
         public DateTime DateOfInformation { get; set; }
 
         [Required]
-        public EntryStatus EntryStatusID { get; set; }
+        public int EntryStatusId { get; set; }
+        public EntryStatus EntryStatus { get; set; }
 
         [Required]
-        public Manufacturer ManufacturerID { get; set; }
+        public int ManufacturerId { get; set; }
+        public Manufacturer Manufacturer { get; set; }
 
         [Required]
-        public KnowledgeCategory KnowlwdgeCateogoryID { get; set; }
-
+        public int KnowledgeCateogoryId { get; set; }
+        public KnowledgeCategory KnowledgeCateogory { get; set; }
+        
         [Required]
         public string CreatedBy { get; set; }
 
