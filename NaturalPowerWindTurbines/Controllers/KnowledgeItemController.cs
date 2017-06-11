@@ -6,12 +6,23 @@ using System.Web.Mvc;
 using NaturalPowerWindTurbines.Models;
 using NaturalPowerWindTurbines.ViewModels;
 
+/* Class definition
+ * Name: KnowledgeItem
+ * Type: Controller
+ * Description: This is the controller for the main entity of the web application. It is responsible for handling requests for pages displaying a KnowledgeItem
+ */
+
 namespace NaturalPowerWindTurbines.Controllers
 {
     public class KnowledgeItemController : Controller
     {
-        // GET: KnowledgeItem
-        public ActionResult Index()
+        /*Function definition
+         * Name: Index
+         * Arguments: None
+         * Type: ViewResult
+         * Description: Controller for the default view of KnowledgeItem. Currently calls GetKnowledgeItem and returns a list to the view.
+         */
+        public ViewResult Index()
         {
             var knowledgeItem = GetKnowledgeItem();
 
@@ -19,6 +30,12 @@ namespace NaturalPowerWindTurbines.Controllers
             return View(knowledgeItem);
         }
 
+        /*Function definition
+         * Name: IndexShowKnowledgeItem
+         * Arguments: id (integer)
+         * Type: ActionResult
+         * Description: Controller for handling a request for a specfic item in a list of KnowledgeItem
+         */
         public ActionResult ShowKnowledgeItem(int id)
         {
             var knowledgeItem = GetKnowledgeItem().SingleOrDefault(k => k.Id == id);
@@ -28,6 +45,12 @@ namespace NaturalPowerWindTurbines.Controllers
             return View(knowledgeItem);
         }
 
+        /*Function definition
+         * Name: GetKnowledgeItem
+         * Arguments: None
+         * Type: IEnumerable<KnowledgeItem>
+         * Description: Temporary fucntion for creating a list of type KnowledgeItem to allow testing of displays before implementing databases
+         */
         private IEnumerable<KnowledgeItem> GetKnowledgeItem()
         {
             /*var entryStatus = new List<EntryStatus>
