@@ -15,14 +15,14 @@ namespace NaturalPowerWindTurbines.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This page describes how the application was developed.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Thank you for taking the time to review my application.";
 
             return View();
         }

@@ -18,10 +18,10 @@ namespace NaturalPowerWindTurbines.Models
         public DateTime DateOfInformation { get; set; }
 
         /*[Required]
-        public Manufacturer ManufacturerID { get; set; }
+        public EntryStatus EntryStatusID { get; set; }
 
         [Required]
-        public EntryStatus EntryStatusID { get; set; }
+        public Manufacturer ManufacturerID { get; set; }
 
         [Required]
         public KnowledgeCategory KnowlwdgeCateogory { get; set; }*/

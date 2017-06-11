@@ -1,8 +1,35 @@
-﻿@model NaturalPowerWindTurbines.Models.KnowledgeItem
+﻿@model IEnumerable<NaturalPowerWindTurbines.Models.KnowledgeItem>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Knowlwedge Items";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Details</h2>
+<h2>List of Items</h2>
 
+@if (!Model.Any())
+{
+    <p>There are no knowledge items to display!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Wind Farm</th>
+                <th>Created</th>
+                <th>Modified</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.WindFarm, "ShowKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null)</td>
+                    <td>@item.CreatedOn</td>
+                    <td>@item.DateOfInformation</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
