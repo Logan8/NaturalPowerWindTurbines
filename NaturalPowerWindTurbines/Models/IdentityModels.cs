@@ -21,6 +21,9 @@ namespace NaturalPowerWindTurbines.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<KnowledgeItem> KnowledgeItem { get; set; }
+        public DbSet<EntryStatus> EntryStatus { get; set; }
+        public DbSet<KnowledgeCategory> KnowledgeCategory { get; set; }
+        public DbSet<Manufacturer> Manufacturer { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

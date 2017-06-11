@@ -28,8 +28,11 @@ else
                     <td>@Html.ActionLink(item.WindFarm, "ShowKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null)</td>
                     <td>@item.CreatedOn</td>
                     <td>@item.DateOfInformation</td>
+                    <td>@Html.ActionLink("Edit", "EditKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null)</td>
                 </tr>
             }
         </tbody>
     </table>
+
+    @Html.ActionLink("Add Item", "New", "KnowledgeItem", null, new { @class = "btn btn-primary" })
 }
