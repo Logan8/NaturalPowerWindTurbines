@@ -17,14 +17,14 @@ namespace NaturalPowerWindTurbines.Models
 
         public DateTime DateOfInformation { get; set; }
 
-        /*[Required]
+        [Required]
         public EntryStatus EntryStatusID { get; set; }
 
         [Required]
         public Manufacturer ManufacturerID { get; set; }
 
         [Required]
-        public KnowledgeCategory KnowlwdgeCateogory { get; set; }*/
+        public KnowledgeCategory KnowlwdgeCateogoryID { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201706111529379_InitialModel.Designer.cs">
       <DependentUpon>201706111529379_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706111544168_AddKnowledgeItemProperties.cs" />
+    <Compile Include="Migrations\201706111544168_AddKnowledgeItemProperties.Designer.cs">
+      <DependentUpon>201706111544168_AddKnowledgeItemProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntryStatus.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -268,6 +272,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706111529379_InitialModel.resx">
       <DependentUpon>201706111529379_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706111544168_AddKnowledgeItemProperties.resx">
+      <DependentUpon>201706111544168_AddKnowledgeItemProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
