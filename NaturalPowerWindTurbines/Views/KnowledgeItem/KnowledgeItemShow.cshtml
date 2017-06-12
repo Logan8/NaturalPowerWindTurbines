@@ -4,7 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.KnowledgeItem.WindFarm</h2>
+<h2>
+    @if (Model.KnowledgeItem.WindFarm == null)
+    {
+        @Html.Raw("(Blank)")
+    }
+    else
+    {
+        @Model.KnowledgeItem.WindFarm
+    }
+</h2>
 
 <table class="table table-bordered table-hover">
     <thead>

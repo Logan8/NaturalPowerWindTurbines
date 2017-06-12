@@ -12,6 +12,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.KnowledgeItem.Details)
         @Html.TextBoxFor(m => m.KnowledgeItem.Details, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.KnowledgeItem.Details)
     </div>
 
     <div class="form-group">
@@ -27,29 +28,34 @@
     <div class="form-group">
         @Html.LabelFor(m => m.KnowledgeItem.Manufacturer)
         @Html.DropDownListFor(m => m.KnowledgeItem.ManufacturerId, new SelectList(Model.Manufacturer, "Id", "Name"), "-Select Manufacturer-", new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.KnowledgeItem.ManufacturerId)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.KnowledgeItem.EntryStatus)
         @Html.DropDownListFor(m => m.KnowledgeItem.EntryStatusId, new SelectList(Model.EntryStatus, "Id", "Name"), "-Select Entry Status-", new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.KnowledgeItem.EntryStatusId)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.KnowledgeItem.KnowledgeCateogory)
         @Html.DropDownListFor(m => m.KnowledgeItem.KnowledgeCateogoryId, new SelectList(Model.KnowledgeCategory, "Id", "Name"), "-Select Category-", new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.KnowledgeItem.KnowledgeCateogoryId)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.KnowledgeItem.CreatedBy)
         @Html.TextBoxFor(m => m.KnowledgeItem.CreatedBy, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.KnowledgeItem.CreatedBy)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.KnowledgeItem.CreatedOn)
         @Html.TextBoxFor(m => m.KnowledgeItem.CreatedOn, "{0:d MMM yyyy}", new { @class = "form-control", @readonly = "readonly", @Value = DateTime.Now })
+        @Html.ValidationMessageFor(k => k.KnowledgeItem.CreatedOn)
     </div>
 
     @Html.HiddenFor(m => m.KnowledgeItem.Id)
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 }

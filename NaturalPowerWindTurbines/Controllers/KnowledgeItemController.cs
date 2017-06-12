@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using NaturalPowerWindTurbines.Models;
 using NaturalPowerWindTurbines.ViewModels;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 /* Class definition
  * Name: KnowledgeItem
@@ -76,6 +77,38 @@ namespace NaturalPowerWindTurbines.Controllers
         [HttpPost]
         public ActionResult Save(KnowledgeItem knowledgeItem)
         {
+            /*      Hack hack...
+                    Id being returned as 0 causes ModelState.IsValid to be false,
+                    as does attempting to format a blank textbox (which returns as invalid date).
+                    So check if DateofInformation is one of the errors and if so, give it today's
+                    date then clear it, and check if Id is an error and clear it.
+                    Then, carry on.
+            */
+            if (ModelState["knowledgeItem.DateofInformation"].Errors.Count == 1)
+            {
+                knowledgeItem.DateOfInformation = DateTime.Now;
+                ModelState["knowledgeItem.DateofInformation"].Errors.Clear();
+            }
+
+            if (ModelState["knowledgeItem.Id"].Errors.Count == 1)
+            {
+                ModelState["knowledgeItem.Id"].Errors.Clear();
+            }
+
+            if (!ModelState.IsValid)
+            {
+
+                var viewModel = new KnowledgeItemFormViewModel
+                {
+                    KnowledgeItem = knowledgeItem,
+                    EntryStatus = _context.EntryStatus.ToList(),
+                    Manufacturer = _context.Manufacturer.ToList(),
+                    KnowledgeCategory = _context.KnowledgeCategory.ToList()
+                };
+                return View("KnowledgeItemForm", viewModel);
+
+            }
+
             if (knowledgeItem.Id == 0) _context.KnowledgeItem.Add(knowledgeItem);
             else
             {
@@ -88,6 +121,7 @@ namespace NaturalPowerWindTurbines.Controllers
                 knowledgeItemFromDb.EntryStatusId = knowledgeItem.EntryStatusId;
                 knowledgeItemFromDb.KnowledgeCateogoryId = knowledgeItem.KnowledgeCateogoryId;
             }
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "KnowledgeItem");

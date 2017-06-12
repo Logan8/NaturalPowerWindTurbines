@@ -25,7 +25,16 @@ else
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(item.WindFarm, "ShowKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null)</td>
+                    <td>
+                        @if (item.WindFarm == null)
+                        {
+                            @Html.ActionLink("(Blank)", "ShowKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null);
+                        }
+                        else
+                        {
+                            @Html.ActionLink(item.WindFarm, "ShowKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null);
+                        }
+
                     <td>@item.CreatedOn</td>
                     <td>@item.DateOfInformation</td>
                     <td>@Html.ActionLink("Edit", "EditKnowledgeItem", "KnowledgeItem", new { id = item.Id }, null)</td>
