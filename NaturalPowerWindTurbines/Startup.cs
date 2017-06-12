@@ -10,5 +10,7 @@ namespace NaturalPowerWindTurbines
         {
             ConfigureAuth(app);
         }
+
+
     }
 }
