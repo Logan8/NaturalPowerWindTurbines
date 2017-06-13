@@ -16,8 +16,9 @@ namespace NaturalPowerWindTurbines.Models
         [Display(Name = "Name of Wind Farm") ]
         public string WindFarm { get; set; }
 
+        // Type changed to be consistant with 'CreatedOn'
         [Display(Name = "Date of Information")]
-        public DateTime DateOfInformation { get; set; }
+        public string DateOfInformation { get; set; }
 
         [Required]
         [Display(Name = "Entry Status")]
@@ -38,8 +39,9 @@ namespace NaturalPowerWindTurbines.Models
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
 
+        // Could not get the text to format as UK date format so any day > 12 caused a validation error. Ran out of time to add globalisation.
         [Required]
         [Display(Name = "Created On")]
-        public DateTime CreatedOn { get; set; }
+        public string CreatedOn { get; set; }
     }
 }

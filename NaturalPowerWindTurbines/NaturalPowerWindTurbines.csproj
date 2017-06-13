@@ -163,33 +163,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\DatabaseContext.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Migrations\201706111529379_InitialModel.cs" />
-    <Compile Include="Migrations\201706111529379_InitialModel.Designer.cs">
-      <DependentUpon>201706111529379_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706111544168_AddKnowledgeItemProperties.cs" />
-    <Compile Include="Migrations\201706111544168_AddKnowledgeItemProperties.Designer.cs">
-      <DependentUpon>201706111544168_AddKnowledgeItemProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706111552575_UpdateKnowledgeItem.cs" />
-    <Compile Include="Migrations\201706111552575_UpdateKnowledgeItem.Designer.cs">
-      <DependentUpon>201706111552575_UpdateKnowledgeItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706111555290_PopulateDatabases.cs" />
-    <Compile Include="Migrations\201706111555290_PopulateDatabases.Designer.cs">
-      <DependentUpon>201706111555290_PopulateDatabases.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706111619206_ReformatKnowledgeItem.cs" />
-    <Compile Include="Migrations\201706111619206_ReformatKnowledgeItem.Designer.cs">
-      <DependentUpon>201706111619206_ReformatKnowledgeItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DAL\WindTurbinesContext.cs" />
+    <Compile Include="DAL\WindTurbinesInitialiser.cs" />
     <Compile Include="Models\EntryStatus.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\KnowledgeCategory.cs" />
@@ -285,21 +265,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706111529379_InitialModel.resx">
-      <DependentUpon>201706111529379_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706111544168_AddKnowledgeItemProperties.resx">
-      <DependentUpon>201706111544168_AddKnowledgeItemProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706111552575_UpdateKnowledgeItem.resx">
-      <DependentUpon>201706111552575_UpdateKnowledgeItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706111555290_PopulateDatabases.resx">
-      <DependentUpon>201706111555290_PopulateDatabases.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706111619206_ReformatKnowledgeItem.resx">
-      <DependentUpon>201706111619206_ReformatKnowledgeItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

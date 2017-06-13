@@ -7,6 +7,7 @@ using NaturalPowerWindTurbines.Models;
 using NaturalPowerWindTurbines.ViewModels;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using NaturalPowerWindTurbines.DAL;
 
 /* Class definition
  * Name: KnowledgeItem
@@ -23,7 +24,7 @@ namespace NaturalPowerWindTurbines.Controllers
          * Type: ApplicationDbContext
          * Description: Used to access databases.
          */
-        private ApplicationDbContext _context;
+        private WindTurbinesContext _context;
 
         /* Class constructor
          * Name: KnowledgeItemController
@@ -32,7 +33,7 @@ namespace NaturalPowerWindTurbines.Controllers
          */
         public KnowledgeItemController()
         {
-            _context = new ApplicationDbContext();
+            _context = new WindTurbinesContext();
         }
 
         /* Function definition
@@ -86,7 +87,7 @@ namespace NaturalPowerWindTurbines.Controllers
             */
             if (ModelState["knowledgeItem.DateofInformation"].Errors.Count == 1)
             {
-                knowledgeItem.DateOfInformation = DateTime.Now;
+                knowledgeItem.DateOfInformation = DateTime.Now.ToString();
                 ModelState["knowledgeItem.DateofInformation"].Errors.Clear();
             }
 
